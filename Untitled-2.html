@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+<body>
+    <script>
+let uname;
+let random;
+let vopros;
+let choose;
+
+
+function start() {
+    uname = prompt("Введите имя", "");
+    
+    alert(`Привет игрок ${uname}! Твоя задача угадать загаданное число от нуля до одного.`)
+}
+
+start();
+
+half();
+
+function half () {
+    while (choose!=false) {
+
+    vopros = prompt("Угадай число", "");
+
+    random = Math.floor(Math.random()*2);
+    console.log (random);
+
+    if (vopros==random) {
+        alert("Молодец, верно!")
+        choose = confirm("Хотите продолжить?");
+
+        if (choose==true) {
+            half();
+        } else {
+            function finish() {
+                alert("Приходите ещё!")
+            }
+            
+        }
+    } else {
+        alert("Попробуй ещё раз");
+        half();
+    }
+}
+}
+
+
+
+
+
+    </script>
+</body>
+</html>
