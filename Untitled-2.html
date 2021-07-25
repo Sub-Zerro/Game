@@ -12,6 +12,7 @@ let uname;
 let random;
 let vopros;
 let choose;
+let youloose = false;
 
 
 function start() {
@@ -24,6 +25,45 @@ start();
 
 half();
 
+
+
+function next () {
+    while (choose!=false || youloose!=false) {
+
+    vopros = prompt("Угадай число от 0 до 2", "");
+
+    random = Math.floor(Math.random()*3);
+    console.log (random);
+
+    if (+vopros==random) {
+        alert("Молодец, верно!")
+        choose = confirm("Хотите ещё раз?");
+
+        if (choose==true) {
+
+            next();
+
+        } else {
+            function finish() {
+                alert("Приходите ещё!")
+            }
+            
+        }
+    } else {
+        youloose=false;
+        alert("Вы проиграли");
+    }
+}
+}
+
+
+
+
+
+
+
+
+
 function half () {
     while (choose!=false) {
 
@@ -34,10 +74,10 @@ function half () {
 
     if (+vopros==random) {
         alert("Молодец, верно!")
-        choose = confirm("Хотите продолжить?");
+        choose = confirm("Хотите повысить уровень?");
 
         if (choose==true) {
-            half();
+            next();
         } else {
             function finish() {
                 alert("Приходите ещё!")
